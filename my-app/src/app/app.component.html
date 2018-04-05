@@ -1,9 +1,28 @@
-<div class="site">
-  <header>
-    <app-header></app-header>
-  </header>
-  <main></main>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
-</div>
+<md-sidenav-container>
+  <!-- <md-sidenav #sidenav1 align="end">
+    <app-sidebar></app-sidebar>
+  </md-sidenav>
+  <md-sidenav #sidenav2 align="start">
+    <app-sidebar></app-sidebar>
+  </md-sidenav> -->
+
+
+  <md-sidenav #sidenav3 mode="side">
+    <app-sidebar></app-sidebar>
+  </md-sidenav>
+
+  <div class="site">
+    <header>
+      <app-header></app-header>
+    </header>
+    <main>
+      <!-- <button (click)="sidenav1.open()">打开侧边栏end</button>
+      <button (click)="sidenav2.open()">打开侧边栏</button> -->
+      <button (click)="sidenav3.toggle()">打开侧边栏</button>
+
+    </main>
+    <footer>
+      <app-footer></app-footer>
+    </footer>
+  </div>
+</md-sidenav-container>
