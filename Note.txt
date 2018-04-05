@@ -1,0 +1,2 @@
+ng new taskmgr -si --style=scss //¾«¼ò°æng
+ng g c core/header --spec=false

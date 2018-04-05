@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body,
+app-root,
+.site {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; //将中间的空间撑满
+}
+
+header {
+  background: green;
+}
+
+footer {
+  background: blue;
+}
