@@ -90,4 +90,3 @@ import {
 })
 export class SharedModule {}
 
-export {};
