@@ -89,5 +89,3 @@ import {
   entryComponents: []
 })
 export class SharedModule {}
-
-export {};
