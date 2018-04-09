@@ -20,6 +20,10 @@ main {
   flex: 1; //将中间的空间撑满
 }
 
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
 header {
   background: green;
 }
