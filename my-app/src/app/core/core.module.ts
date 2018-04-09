@@ -9,11 +9,14 @@ import { MdIconRegistry } from "@angular/material";
 import { DomSanitizer } from "@angular/platform-browser";
 
 import { SidebarComponent } from "./sidebar/sidebar.component";
+//因为sharedModule里面是即引入了模块，有导出了模块，所以只需在coremodule中引入即可。
 import { SharedModule } from "../shared/shared.module";
 import { loadSvgResources } from "../utils/svg.util";
+//动画
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
-  imports: [CommonModule, SharedModule, HttpModule],
+  imports: [BrowserAnimationsModule, SharedModule, HttpModule],
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
   exports: [HeaderComponent, FooterComponent, SidebarComponent]
 })

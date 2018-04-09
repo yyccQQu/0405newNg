@@ -1,2 +1,3 @@
-ng new taskmgr -si --style=scss //¾«¼ò°æng
+ng new taskmgr -si --style=scss //ï¿½ï¿½ï¿½ï¿½ï¿½ng
 ng g c core/header --spec=false
+ng-router-featuremodule //å¿«æ·ç®€å†å­è·¯ç”±

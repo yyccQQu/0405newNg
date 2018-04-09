@@ -50,7 +50,6 @@ import {
     MdRadioModule,
     MdAutocompleteModule,
     MdTabsModule,
-    // 。。。。。
     MdTooltipModule,
     MdToolbarModule,
     MdSidenavModule,
