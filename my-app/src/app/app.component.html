@@ -1,13 +1,6 @@
 <md-sidenav-container>
-  <!-- <md-sidenav #sidenav1 align="end">
-    <app-sidebar></app-sidebar>
-  </md-sidenav>
-  <md-sidenav #sidenav2 align="start">
-    <app-sidebar></app-sidebar>
-  </md-sidenav> -->
 
-
-  <md-sidenav #sidenav3 mode="side">
+  <md-sidenav #sidenav3 mode="over">
     <app-sidebar></app-sidebar>
   </md-sidenav>
 
@@ -16,12 +9,7 @@
       <app-header (toggle)="sidenav3.toggle()"></app-header>
     </header>
     <main>
-      <!-- <button (click)="sidenav1.open()">打开侧边栏end</button>
-      <button (click)="sidenav2.open()">打开侧边栏</button> -->
-      <!-- <button (click)="sidenav3.toggle()">打开侧边栏</button> -->
       <router-outlet></router-outlet>
-
-
     </main>
     <footer>
       <app-footer></app-footer>
