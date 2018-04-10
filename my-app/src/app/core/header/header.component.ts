@@ -8,11 +8,17 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 export class HeaderComponent implements OnInit {
   @Output() toggle = new EventEmitter<void>(); //不希望返回参数
 
+  @Output() toggleDarkTheme = new EventEmitter<boolean>();
+
   constructor() {}
 
   ngOnInit() {}
 
   openSidebar() {
     this.toggle.emit();
+  }
+
+  onChange(checked: boolean) {
+    this.toggleDarkTheme.emit(checked);
   }
 }

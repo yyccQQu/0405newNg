@@ -1,12 +1,10 @@
 <md-toolbar color="primary">
   <button md-icon-button (click)="openSidebar()">
     <md-icon>menu</md-icon>
-    <!-- 将material官方icon的名字引入即可 -->
-    <!-- <md-icon>account_balance_wallet</md-icon> -->
-    <!-- <md-icon>cached</md-icon> -->
-    <!-- <md-icon svgIcon="gifts"></md-icon> -->
   </button>
 
-
   <span>企业协作平台</span>
+  <span class="fill-remaining-space"></span>
+  <!-- change发射事件==》appComponent组件接收事件==》决定背景颜色 -->
+  <md-slide-toggle (change)="onChange($event.checked)">黑夜模式</md-slide-toggle>
 </md-toolbar>

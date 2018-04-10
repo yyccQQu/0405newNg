@@ -1,4 +1,4 @@
-<md-sidenav-container>
+<md-sidenav-container [class.myapp-dark-theme]="darkTheme">
 
   <md-sidenav #sidenav3 mode="over">
     <app-sidebar></app-sidebar>
@@ -6,7 +6,8 @@
 
   <div class="site">
     <header>
-      <app-header (toggle)="sidenav3.toggle()"></app-header>
+      <!-- 子组件发射toggleDarkTheme，父组件接收toggleDarkTheme 以switchTheme-->
+      <app-header (toggle)="sidenav3.toggle()" (toggleDarkTheme)="switchTheme($event)"></app-header>
     </header>
     <main>
       <router-outlet></router-outlet>
