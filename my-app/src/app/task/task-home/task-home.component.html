@@ -1,0 +1,13 @@
+<div class="task-lists">
+  <app-task-list *ngFor="let list of lists">
+    <app-task-header [header]='list.name'></app-task-header>
+    <app-task-item class="list-container" *ngFor="let task of list.tasks">
+    </app-task-item>
+
+  </app-task-list>
+
+</div>
+
+<button md-fab type="button" class="fab-button" (click)="openNewProjectDialog()">
+  <md-icon>add</md-icon>
+</button>
