@@ -1,3 +1,6 @@
 ng new taskmgr -si --style=scss //�����ng
 ng g c core/header --spec=false
 ng-router-featuremodule //快捷简历子路由
+
+ng g m test
+ng g c test/testIndex --spec=false
