@@ -14,13 +14,11 @@ export class NewProjectComponent implements OnInit {
   //将projectlist的值导入模态框内
   constructor(
     @Inject(MD_DIALOG_DATA) private data,
-    private dialogRef: MdDialogRef<NewProjectComponent>,
-    private oc: OverlayContainer
+    private dialogRef: MdDialogRef<NewProjectComponent>
   ) {}
 
   ngOnInit() {
     console.log(JSON.stringify(this.data));
-    this.oc.themeClass = this.data.dark ? "myapp-dark-theme" : null;
   }
 
   onClick() {

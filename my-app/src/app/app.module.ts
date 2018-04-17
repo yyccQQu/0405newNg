@@ -10,6 +10,7 @@ import { SharedModule } from "./shared/shared.module";
 import { LoginComponent } from "./login/login/login.component";
 import { RegisterComponent } from "./login/register/register.component";
 import { ProjectModule } from "./project/project.module";
+import { TaskModule } from "./task/task.module";
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],
@@ -17,6 +18,7 @@ import { ProjectModule } from "./project/project.module";
     BrowserModule,
     CoreModule,
     AppRoutingModule,
+    TaskModule,
     MdSidenavModule,
     MdTooltipModule,
     SharedModule,
