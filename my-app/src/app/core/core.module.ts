@@ -14,6 +14,8 @@ import { SharedModule } from "../shared/shared.module";
 import { loadSvgResources } from "../utils/svg.util";
 //动画
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+//移动端
+import "hammerjs";
 
 @NgModule({
   imports: [BrowserAnimationsModule, SharedModule, HttpModule],
