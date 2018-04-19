@@ -79,12 +79,20 @@ export class TaskHomeComponent implements OnInit {
   ngOnInit() {}
 
   launchNewTaskDialog() {
-    this.dialog.open(NewTaskComponent);
+    const dialogRef = this.dialog.open(NewTaskComponent, {
+      data: { title: "新建任务" }
+    });
   }
 
   launchCopyTaskDialog() {
     const dialogRef = this.dialog.open(CopyTaskComponent, {
       data: { lists: this.lists }
+    });
+  }
+
+  launchUpdateTaskDialog(task) {
+    const dialogRef = this.dialog.open(NewTaskComponent, {
+      data: { title: "修改任务", task: task }
     });
   }
 }

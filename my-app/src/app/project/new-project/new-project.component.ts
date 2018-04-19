@@ -11,6 +11,7 @@ import {
   styleUrls: ["./new-project.component.scss"]
 })
 export class NewProjectComponent implements OnInit {
+  title = "";
   //将projectlist的值导入模态框内
   constructor(
     @Inject(MD_DIALOG_DATA) private data,
@@ -18,6 +19,7 @@ export class NewProjectComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.title = this.data.title;
     console.log(JSON.stringify(this.data));
   }
 
