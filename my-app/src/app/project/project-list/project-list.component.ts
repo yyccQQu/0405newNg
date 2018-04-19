@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MdDialog, MdDialogRef } from "@angular/material";
 import { NewProjectComponent } from "../new-project/new-project.component";
 import { InviteComponent } from "../invite/invite.component";
+import { ConfirmDialogComponent } from "../../shared/confirm-dialog/confirm-dialog.component";
 
 @Component({
   selector: "app-project-list",
@@ -40,6 +41,7 @@ export class ProjectListComponent implements OnInit {
       //将值传入模态框内
       data: { title: "新增项目" }
     });
+    //订阅结果变化
     dialogRef.afterClosed().subscribe(result => console.log(result));
   }
 
@@ -53,5 +55,14 @@ export class ProjectListComponent implements OnInit {
       //将值传入模态框内
       data: { title: "编辑项目" }
     });
+  }
+
+  //project-item confirm-dialog project-list
+  launchConfirmDialog() {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      //将值传入模态框内
+      data: { title: "删除项目", content: "您确认删除该项目吗？" }
+    });
+    dialogRef.afterClosed().subscribe(result => console.log(result));
   }
 }

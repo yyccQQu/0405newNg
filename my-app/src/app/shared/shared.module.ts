@@ -26,6 +26,7 @@ import {
   MdSelectionModule,
   MdSlideToggleModule
 } from "@angular/material";
+import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.component";
 
 @NgModule({
   imports: [
@@ -84,7 +85,7 @@ import {
     MdSidenavModule,
     MdSlideToggleModule
   ],
-  declarations: [],
-  entryComponents: []
+  declarations: [ConfirmDialogComponent],
+  entryComponents: [ConfirmDialogComponent]
 })
 export class SharedModule {}
