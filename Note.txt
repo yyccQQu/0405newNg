@@ -4,3 +4,22 @@ ng-router-featuremodule //快捷简历子路由
 
 ng g m test
 ng g c test/testIndex --spec=false
+
+<div md-line class="content" [ngClass]="{'completed': item.completed}">
+    <!-- 当item.completed存在时，div的class为completed -->
+{{item.desc}}
+</div>
+<md-list-item class="container" [ngClass]="{
+    'priority-normal': item.priority === 3,
+    'priority-important': item.priority === 2, 
+    'priority-emergency': item.priority === 1
+   }">
+//阻止冒泡事件
+---》执行事件中传入$event
+onCheckBoxClick($event)
+onCheckBoxClick(ev: Event) {
+    ev.stopPropagation();
+}
+
+//建立内联式的模板
+ng g c shared/confirm-dialog -it -is --spec=false

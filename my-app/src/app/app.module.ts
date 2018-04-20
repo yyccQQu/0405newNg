@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CoreModule } from "./core/core.module";
 import { MdSidenavModule, MdTooltipModule } from "@angular/material";
 import { AppRoutingModule } from "./app-routing.module"; //将根路由引入
@@ -22,7 +22,8 @@ import { TaskModule } from "./task/task.module";
     MdSidenavModule,
     MdTooltipModule,
     SharedModule,
-    ProjectModule
+    ProjectModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
