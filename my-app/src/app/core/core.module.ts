@@ -9,6 +9,9 @@ import { MdIconRegistry } from "@angular/material";
 import { DomSanitizer } from "@angular/platform-browser";
 
 import { SidebarComponent } from "./sidebar/sidebar.component";
+import { AppRoutingModule } from "../app-routing.module"; //将根路由引入
+import { MdSidenavModule, MdTooltipModule } from "@angular/material";
+
 //因为sharedModule里面是即引入了模块，有导出了模块，所以只需在coremodule中引入即可。
 import { SharedModule } from "../shared/shared.module";
 import { loadSvgResources } from "../utils/svg.util";
@@ -18,9 +21,21 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import "hammerjs";
 
 @NgModule({
-  imports: [BrowserAnimationsModule, SharedModule, HttpModule],
+  imports: [
+    BrowserAnimationsModule,
+    SharedModule,
+    HttpModule,
+    AppRoutingModule,
+    MdSidenavModule,
+    MdTooltipModule
+  ],
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
-  exports: [HeaderComponent, FooterComponent, SidebarComponent]
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent,
+    AppRoutingModule
+  ]
 })
 export class CoreModule {
   constructor(
