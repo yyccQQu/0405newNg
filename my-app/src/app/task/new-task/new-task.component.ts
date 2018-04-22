@@ -1,10 +1,16 @@
-import { Component, OnInit, Inject } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Inject
+} from "@angular/core";
 import { MD_DIALOG_DATA, MdDialogRef } from "@angular/material";
 
 @Component({
   selector: "app-new-task",
   templateUrl: "./new-task.component.html",
-  styleUrls: ["./new-task.component.scss"]
+  styleUrls: ["./new-task.component.scss"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewTaskComponent implements OnInit {
   title = "";
