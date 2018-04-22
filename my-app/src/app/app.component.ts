@@ -11,9 +11,13 @@ export class AppComponent {
   darkTheme = false;
   squareState: string;
 
-  constructor(private oc: OverlayContainer) {
+  constructor(private oc: OverlayContainer, @Inject("BASE_CONFIG") config) {
+    //通过coreModule中的providers的provider注入
+    console.log(config);
+    //注入者
     const injector = ReflectiveInjector.resolveAndCreate([
-      { provide: Person, useClass: Person },
+      Person, //就是provide和useClass(token)的简写
+      //这下面返回的都是那一个的实例
       {
         provide: Address,
         useFactory: () => {
@@ -24,6 +28,20 @@ export class AppComponent {
           }
         }
       },
+
+      //返回的是动态信息《内用工厂方法》//第一种方法 得到新型的实例
+      // {
+      //   provide: Address,
+      //   useFactory: () => {
+      //     return () => {
+      //       if (this.darkTheme) {
+      //         return new Address("北京", "北京", "朝阳区", "xx 街道 xx 号");
+      //       } else {
+      //         return new Address("西藏", "拉萨", "xx区", "xx 街道 xx 号");
+      //       }
+      //     };
+      //   }
+      // },
       {
         provide: Id,
         useFactory: () => {
@@ -31,9 +49,14 @@ export class AppComponent {
         }
       }
     ]);
-
+    const childInjector = injector.resolveAndCreateChild([Person]); //第二种方法 得到新型的实例
     const person = injector.get(Person);
-    console.log(JSON.stringify(person));
+    const personFromChild = childInjector.get(Person);
+    console.log(
+      JSON.stringify(person),
+      person === personFromChild,
+      JSON.stringify(personFromChild)
+    );
   }
 
   switchTheme(dark) {
