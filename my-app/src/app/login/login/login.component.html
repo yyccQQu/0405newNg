@@ -1,19 +1,20 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <md-card>
     <md-card-header>
       <md-card-title>登录：</md-card-title>
     </md-card-header>
     <md-card-content>
       <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="您的email">
+        <input type="text" mdInput placeholder="您的email" formControlName="email">
+        <md-error>{{form.controls['email'].errors | json}}</md-error>
       </md-input-container>
       <md-input-container class="full-width">
-        <input type="password" mdInput placeholder="您的密码">
+        <input type="password" mdInput placeholder="您的密码" formControlName="password">
       </md-input-container>
       <!-- <button md-button type="button">登录</button>
       <button md-fab type="button">登录</button>
       <button md-mini-fab type="button">登录</button> -->
-      <button md-raised-button type="button">登录</button>
+      <button md-raised-button type="button" type="submit" [disabled]="!form.valid">登录</button>
     </md-card-content>
     <md-card-actions class="text-align">
       <p>还没有账户？
