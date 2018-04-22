@@ -23,3 +23,7 @@ onCheckBoxClick(ev: Event) {
 
 //建立内联式的模板
 ng g c shared/confirm-dialog -it -is --spec=false
+
+//构建自定义组件
+ng g m directive
+ng g d directive/drag --spec=false

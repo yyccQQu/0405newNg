@@ -27,6 +27,7 @@ import {
   MdSlideToggleModule
 } from "@angular/material";
 import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.component";
+import { DirectiveModule } from "../directive/directive.module";
 
 @NgModule({
   imports: [
@@ -55,7 +56,8 @@ import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.componen
     MdToolbarModule,
     MdSidenavModule,
     MdSlideToggleModule,
-    MdSelectionModule
+    MdSelectionModule,
+    DirectiveModule
   ],
   exports: [
     CommonModule,
@@ -83,7 +85,8 @@ import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.componen
     MdSelectionModule,
     MdToolbarModule,
     MdSidenavModule,
-    MdSlideToggleModule
+    MdSlideToggleModule,
+    DirectiveModule
   ],
   declarations: [ConfirmDialogComponent],
   entryComponents: [ConfirmDialogComponent]
