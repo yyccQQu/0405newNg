@@ -1,26 +1,23 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
   <md-card>
     <md-card-header>
       <md-card-title>注册：</md-card-title>
     </md-card-header>
     <md-card-content>
       <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="您的email">
+        <input type="text" mdInput placeholder="您的email" formControlName="email">
       </md-input-container>
       <md-input-container class="full-width">
-        <input type="text" mdInput placeholder="您的姓名">
+        <input type="text" mdInput placeholder="您的姓名" formControlName="name">
       </md-input-container>
       <md-input-container class="full-width">
-        <input type="password" mdInput placeholder="您的密码">
+        <input type="password" mdInput placeholder="您的密码" formControlName="password">
       </md-input-container>
       <md-input-container class="full-width">
-        <input type="password" mdInput placeholder="重复输入您的密码">
+        <input type="password" mdInput placeholder="重复输入您的密码" formControlName="repeat">
       </md-input-container>
-      <md-grid-list cols="8" rowHeight="1:1">
-        <md-grid-tile *ngFor="let item of items">
-          <md-icon class="avatar" [svgIcon]="item"></md-icon>
-        </md-grid-tile>
-      </md-grid-list>
+      <app-image-list-select [useSvgIcon]="true" [cols]="6" [title]="'选择头像：'" [items]="items" formControlName="avatar">
+      </app-image-list-select>
       <button md-raised-button type="button">注册</button>
     </md-card-content>
     <md-card-actions class="text-align">

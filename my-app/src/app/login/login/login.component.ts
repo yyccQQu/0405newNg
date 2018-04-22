@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     console.log(JSON.stringify(value), valid);
   }
 
-  validate(c: FormControl): any {
+  validate(c: FormControl): { [key: string]: any } {
     if (!c.value) {
       return;
     }
