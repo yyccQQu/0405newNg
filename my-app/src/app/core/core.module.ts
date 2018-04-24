@@ -43,6 +43,7 @@ import "rxjs/add/operator/filter";
 import "rxjs/add/operator/take";
 import "rxjs/add/operator/count";
 import "rxjs/add/operator/do";
+import { ServicesModule } from "../services/services.module";
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import "rxjs/add/operator/do";
     HttpModule,
     AppRoutingModule,
     MdSidenavModule,
+    ServicesModule.forRoot(),
     MdTooltipModule
   ],
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
