@@ -60,7 +60,14 @@ import "rxjs/add/operator/do";
     SidebarComponent,
     AppRoutingModule
   ],
-  providers: [{ provide: "BASE_CONFIG", useValue: "http://localhost:3000" }]
+  providers: [
+    {
+      provide: "BASE_CONFIG",
+      useValue: {
+        uri: "http://localhost:3000"
+      }
+    }
+  ]
 })
 export class CoreModule {
   constructor(
