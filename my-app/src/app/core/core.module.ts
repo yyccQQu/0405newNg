@@ -19,7 +19,7 @@ import { loadSvgResources } from "../utils/svg.util";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 //移动端
 import "hammerjs";
-//import "../utils/debug.util";
+import "../utils/debug.util";
 import "rxjs/add/observable/from";
 import "rxjs/add/observable/concat";
 import "rxjs/add/observable/zip";

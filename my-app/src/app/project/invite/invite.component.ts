@@ -34,6 +34,8 @@ export class InviteComponent implements OnInit {
   displayUser(user: { id: string; name: string }) {
     return user ? user.name : "";
   }
+
+  onClick() {}
 }
 // export interface User {
 //   id: string;

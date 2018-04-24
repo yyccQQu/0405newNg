@@ -42,4 +42,6 @@ export class RegisterComponent implements OnInit {
       identity: []
     });
   }
+
+  onSubmit({ value, valid }, ev: Event) {}
 }
