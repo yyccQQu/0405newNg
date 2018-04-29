@@ -6,7 +6,7 @@ import {
   Validators
 } from "@angular/forms";
 import { QuoteService } from "../../services/quote.service";
-import { Quote } from "../../domain/quote.model";
+import { Quote } from "../../domain/quote";
 
 @Component({
   selector: "app-login",
