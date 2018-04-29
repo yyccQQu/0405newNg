@@ -18,6 +18,7 @@
       </md-input-container>
       <app-image-list-select [useSvgIcon]="true" [cols]="6" [title]="'选择头像：'" [items]="items" formControlName="avatar">
       </app-image-list-select>
+      <app-age-input formControlName="dateOfBirth" (change)="onChange($event)"></app-age-input>
       <button md-raised-button type="button">注册</button>
     </md-card-content>
     <md-card-actions class="text-align">

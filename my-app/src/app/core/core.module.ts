@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 //移动端
 import "hammerjs";
 import "../utils/debug.util";
+//如果是创建类的基本是observable，如果是操作类的基本是operator
 import "rxjs/add/observable/from";
 import "rxjs/add/observable/concat";
 import "rxjs/add/observable/zip";

@@ -37,11 +37,17 @@ export class RegisterComponent implements OnInit {
       ],
       repeat: ["", Validators.required],
       avatar: [img],
-      dateOfBirth: [""],
+      dateOfBirth: ["1990-01-01"],
       address: ["", Validators.maxLength(80)],
       identity: []
     });
   }
 
-  onSubmit({ value, valid }, ev: Event) {}
+  onSubmit({ value, valid }, ev: Event) {
+    ev.preventDefault();
+    if (!valid) {
+      return;
+    }
+    console.log(value);
+  }
 }
