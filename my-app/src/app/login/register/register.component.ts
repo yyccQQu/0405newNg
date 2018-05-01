@@ -5,17 +5,27 @@ import {
   ChangeDetectionStrategy
 } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs/Observable";
+import { Subscription } from "rxjs/Subscription";
+import {
+  extractInfo,
+  getAddrByCode,
+  isValidAddr
+} from "../../utils/identity.util";
+import { isValidDate, toDate } from "../../utils/date.util";
 
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html",
   styleUrls: ["./register.component.scss"]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   items: string[];
   form: FormGroup;
 
   private readonly avatarName = "avatars";
+  private _sub: Subscription;
 
   constructor(private fb: FormBuilder) {}
 
@@ -41,6 +51,37 @@ export class RegisterComponent implements OnInit {
       address: ["", Validators.maxLength(80)],
       identity: []
     });
+
+    const id$ = this.form
+      .get("identity")
+      .valueChanges.debounceTime(300)
+      .filter(v => this.form.get("identity").valid);
+
+    this._sub = id$.subscribe(id => {
+      const info = extractInfo(id.identityNo);
+      if (isValidAddr(info.addrCode)) {
+        const addr = getAddrByCode(info.addrCode);
+        this.form.patchValue({ address: addr });
+        this.form.updateValueAndValidity({
+          onlySelf: true,
+          emitEvent: true
+        });
+      }
+      if (isValidDate(info.dateOfBirth)) {
+        const date = info.dateOfBirth;
+        this.form.patchValue({ dateOfBirth: date });
+        this.form.updateValueAndValidity({
+          onlySelf: true,
+          emitEvent: true
+        });
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this._sub) {
+      this._sub.unsubscribe();
+    }
   }
 
   onSubmit({ value, valid }, ev: Event) {
