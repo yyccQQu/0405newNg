@@ -31,6 +31,7 @@ import { ConfirmDialogComponent } from "./confirm-dialog/confirm-dialog.componen
 import { DirectiveModule } from "../directive/directive.module";
 import { ImageListSelectComponent } from "./image-list-select/image-list-select.component";
 import { AgeInputComponent } from "./age-input/age-input.component";
+import { ChipsListComponent } from "./chips-list/chips-list.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -92,12 +93,14 @@ import { AgeInputComponent } from "./age-input/age-input.component";
     MdSlideToggleModule,
     DirectiveModule,
     ImageListSelectComponent,
-    AgeInputComponent
+    AgeInputComponent,
+    ChipsListComponent
   ],
   declarations: [
     ConfirmDialogComponent,
     ImageListSelectComponent,
-    AgeInputComponent
+    AgeInputComponent,
+    ChipsListComponent
   ],
   entryComponents: [ConfirmDialogComponent]
 })
