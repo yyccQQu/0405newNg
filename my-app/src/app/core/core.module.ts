@@ -10,7 +10,6 @@ import { DomSanitizer } from "@angular/platform-browser";
 
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { AppRoutingModule } from "../app-routing.module"; //将根路由引入
-import { MdSidenavModule, MdTooltipModule } from "@angular/material";
 
 //因为sharedModule里面是即引入了模块，有导出了模块，所以只需在coremodule中引入即可。
 import { SharedModule } from "../shared/shared.module";
@@ -45,6 +44,7 @@ import "rxjs/add/operator/take";
 import "rxjs/add/operator/count";
 import "rxjs/add/operator/do";
 import { ServicesModule } from "../services/services.module";
+import { AppStoreModule } from "../reducers";
 
 @NgModule({
   imports: [
@@ -52,9 +52,8 @@ import { ServicesModule } from "../services/services.module";
     SharedModule,
     HttpModule,
     AppRoutingModule,
-    MdSidenavModule,
     ServicesModule.forRoot(),
-    MdTooltipModule
+    AppStoreModule
   ],
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
   exports: [
