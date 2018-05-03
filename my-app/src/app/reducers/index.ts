@@ -66,3 +66,8 @@ export const getQuote = createSelector(getQuoteState, fromQuote.getQuote); //===
   ]
 })
 export class AppStoreModule {}
+
+//Effect:
+//action->reducer/Effect
+//reducer->UI
+//Effect-->Dom/HTTP/Other side

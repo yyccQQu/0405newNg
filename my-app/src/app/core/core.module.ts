@@ -45,6 +45,7 @@ import "rxjs/add/operator/count";
 import "rxjs/add/operator/do";
 import { ServicesModule } from "../services/services.module";
 import { AppStoreModule } from "../reducers";
+import { EffectsModule } from "@ngrx/effects";
 
 @NgModule({
   imports: [
@@ -53,7 +54,8 @@ import { AppStoreModule } from "../reducers";
     HttpModule,
     AppRoutingModule,
     ServicesModule.forRoot(),
-    AppStoreModule
+    AppStoreModule,
+    EffectsModule
   ],
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
   exports: [
