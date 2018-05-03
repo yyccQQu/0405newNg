@@ -56,7 +56,7 @@ export function reducer(
 
 export const getQuoteState = (state: State) => state.quote;
 
-export const getQuote = createSelector(getQuoteState, fromQuote.getQuote);
+export const getQuote = createSelector(getQuoteState, fromQuote.getQuote); //===>[...x,y],将x的值不断传入y中
 
 @NgModule({
   imports: [

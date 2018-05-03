@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
     //store$除了发射，还可以取得最新的状态
     this.quote$ = this.store$.select(fromRoot.getQuote);
     this.quoteService$.getQuote().subscribe(q => {
-      this.store$.dispatch({ type: actions.QUOTE_SUCCESS, payload: q });
+      //this.store$.dispatch({ type: actions.QUOTE_SUCCESS, payload: q });
+      this.store$.dispatch(new actions.QuoteSuccessAction(q));
     });
   }
 
