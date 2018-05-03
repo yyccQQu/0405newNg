@@ -21,6 +21,7 @@ import { compose } from "@ngrx/core/compose";
  */
 import * as fromQuote from "./quote.reducer";
 
+//可以帮我们把任意的两个函数组合到一起，形成有缓存的方式
 import { createSelector } from "reselect";
 
 export interface State {

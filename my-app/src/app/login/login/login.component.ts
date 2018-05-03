@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     private store$: Store<fromRoot.State>
   ) {
     //store$除了发射，还可以取得最新的状态
-    this.quote$ = this.store$.select(state => state.quote.quote);
+    this.quote$ = this.store$.select(fromRoot.getQuote);
     this.quoteService$.getQuote().subscribe(q => {
       this.store$.dispatch({ type: actions.QUOTE_SUCCESS, payload: q });
     });
