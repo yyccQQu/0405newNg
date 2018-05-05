@@ -14,6 +14,8 @@ import {
   isValidAddr
 } from "../../utils/identity.util";
 import { isValidDate, toDate } from "../../utils/date.util";
+import * as fromRoot from "../../reducers";
+import * as actions from "../../actions/auth.action";
 
 @Component({
   selector: "app-register",
@@ -27,7 +29,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   private readonly avatarName = "avatars";
   private _sub: Subscription;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private store$: Store<fromRoot.State>) {}
 
   ngOnInit() {
     const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
@@ -90,5 +92,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       return;
     }
     console.log(value);
+    this.store$.dispatch(new actions.RegisterAction(value));
   }
 }

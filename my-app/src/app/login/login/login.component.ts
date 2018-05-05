@@ -11,7 +11,8 @@ import { Quote } from "../../domain/quote";
 import { Store } from "@ngrx/store";
 import * as fromRoot from "../../reducers";
 import * as actions from "../../actions/quote.action";
-import { QUOTE_SUCCESS } from "../../actions/quote.action";
+import * as authActions from "../../actions/auth.action";
+//import { QUOTE_SUCCESS } from "../../actions/quote.action";
 
 @Component({
   selector: "app-login",
@@ -41,11 +42,7 @@ export class LoginComponent implements OnInit {
     this.form = this.fb.group({
       email: [
         "wpcfan@163.com",
-        Validators.compose([
-          Validators.required,
-          Validators.email,
-          this.validate
-        ])
+        Validators.compose([Validators.required, Validators.email])
       ],
       password: ["wp123456", Validators.required]
     });
@@ -54,35 +51,36 @@ export class LoginComponent implements OnInit {
   onSubmit({ value, valid }, e: Event) {
     e.preventDefault();
     //动态添加验证方法
-    this.form.controls["email"].setValidators(this.validatee);
+    //this.form.controls["email"].setValidators(this.validatee);
     if (!valid) {
       return;
     }
-    console.log(JSON.stringify(value), valid);
+    // console.log(JSON.stringify(value), valid);
+    this.store$.dispatch(new authActions.LoginAction(value));
   }
 
-  validate(c: FormControl): { [key: string]: any } {
-    if (!c.value) {
-      return;
-    }
-    const reg = /^wang+/;
-    if (reg.test(c.value)) {
-      return null;
-    } else {
-      return {
-        emailNotValid: "The email must start with wang"
-      };
-    }
-  }
-  validatee(c: FormControl): any {
-    if (!c.value) {
-      return;
-    }
-    const reg = /^wang233+/;
-    if (reg.test(c.value)) {
-      return null;
-    } else {
-      return { emailNotValid: "The email must start with wang233" };
-    }
-  }
+  // validate(c: FormControl): { [key: string]: any } {
+  //   if (!c.value) {
+  //     return;
+  //   }
+  //   const reg = /^wang+/;
+  //   if (reg.test(c.value)) {
+  //     return null;
+  //   } else {
+  //     return {
+  //       emailNotValid: "The email must start with wang"
+  //     };
+  //   }
+  // }
+  // validatee(c: FormControl): any {
+  //   if (!c.value) {
+  //     return;
+  //   }
+  //   const reg = /^wang233+/;
+  //   if (reg.test(c.value)) {
+  //     return null;
+  //   } else {
+  //     return { emailNotValid: "The email must start with wang233" };
+  //   }
+  // }
 }

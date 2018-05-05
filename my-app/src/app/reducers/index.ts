@@ -20,22 +20,28 @@ import { compose } from "@ngrx/core/compose";
  * 分别从每个 reducer 中将需要导出的函数或对象进行导出，并起个易懂的名字
  */
 import * as fromQuote from "./quote.reducer";
+import * as fromAuth from "./auth.reducer";
 
 //可以帮我们把任意的两个函数组合到一起，形成有缓存的方式
 import { createSelector } from "reselect";
 
+import { Auth } from "../domain";
+
 export interface State {
   //全局state
   quote: fromQuote.State;
+  auth: Auth;
 }
 
 const initialState: State = {
   //全局初始值
-  quote: fromQuote.initialState
+  quote: fromQuote.initialState,
+  auth: fromAuth.initialState
 };
 
 const reducers = {
-  quote: fromQuote.reducer
+  quote: fromQuote.reducer,
+  auth: fromAuth.reducer
 };
 
 const productionReducers: ActionReducer<State> = combineReducers(reducers);
@@ -55,6 +61,7 @@ export function reducer(
 }
 
 export const getQuoteState = (state: State) => state.quote;
+export const getAuth = (state: State) => state.auth;
 
 export const getQuote = createSelector(getQuoteState, fromQuote.getQuote); //===>[...x,y],将x的值不断传入y中
 
@@ -71,3 +78,5 @@ export class AppStoreModule {}
 //action->reducer/Effect
 //reducer->UI
 //Effect-->Dom/HTTP/Other side
+
+//state:
